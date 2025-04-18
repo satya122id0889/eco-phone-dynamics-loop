@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -61,42 +60,42 @@ const CausalLoopDiagram: React.FC<CausalLoopDiagramProps> = ({ className }) => {
     B2: "#E91E63"  // Pink
   };
 
-  // Define nodes
+  // Define nodes with adjusted positions to ensure visibility
   const nodes: Node[] = [
-    // Material Sourcing
-    { id: "rareEarthMining", label: "Rare Earth Mining", category: "material", x: 180, y: 120 },
-    { id: "recycledMaterials", label: "Recycled Materials", category: "material", x: 100, y: 220 },
-    { id: "ethicalSourcing", label: "Ethical Sourcing", category: "material", x: 240, y: 300 },
-    { id: "bioDegradableMaterials", label: "Bio-based Materials", category: "material", x: 320, y: 180 },
-    { id: "altBatteryChemistries", label: "Alternative Battery Chemistries", category: "material", x: 150, y: 380 },
+    // Material Sourcing - Adjusted positions
+    { id: "rareEarthMining", label: "Rare Earth Mining", category: "material", x: 180, y: 150 },
+    { id: "recycledMaterials", label: "Recycled Materials", category: "material", x: 100, y: 250 },
+    { id: "ethicalSourcing", label: "Ethical Sourcing", category: "material", x: 240, y: 350 },
+    { id: "bioDegradableMaterials", label: "Bio-based Materials", category: "material", x: 320, y: 200 },
+    { id: "altBatteryChemistries", label: "Alternative Battery Chemistries", category: "material", x: 150, y: 400 },
     
-    // User Interaction
-    { id: "repairability", label: "Repairability", category: "user", x: 480, y: 120 },
-    { id: "deviceLongevity", label: "Device Longevity", category: "user", x: 400, y: 220 },
-    { id: "newFeatureDemand", label: "Demand for New Features", category: "user", x: 580, y: 180 },
-    { id: "digitalMinimalism", label: "Digital Minimalism", category: "user", x: 520, y: 300 },
-    { id: "smartFeedback", label: "Smart Feedback Interfaces", category: "user", x: 680, y: 280 },
-    { id: "oldPhoneRepurposing", label: "Old Phone Repurposing", category: "user", x: 600, y: 380 },
+    // User Interaction - Spread out more
+    { id: "repairability", label: "Repairability", category: "user", x: 480, y: 150 },
+    { id: "deviceLongevity", label: "Device Longevity", category: "user", x: 400, y: 250 },
+    { id: "newFeatureDemand", label: "Demand for New Features", category: "user", x: 580, y: 200 },
+    { id: "digitalMinimalism", label: "Digital Minimalism", category: "user", x: 520, y: 350 },
+    { id: "smartFeedback", label: "Smart Feedback Interfaces", category: "user", x: 680, y: 300 },
+    { id: "oldPhoneRepurposing", label: "Old Phone Repurposing", category: "user", x: 600, y: 400 },
     
-    // Economic Factors
-    { id: "manufacturingCost", label: "Manufacturing Cost", category: "economic", x: 880, y: 120 },
-    { id: "modularityBenefits", label: "Modularity Benefits", category: "economic", x: 780, y: 220 },
-    { id: "upgradeSubsidies", label: "Carrier Upgrade Subsidies", category: "economic", x: 980, y: 180 },
-    { id: "refurbishmentEconomy", label: "Refurbishment Economy", category: "economic", x: 880, y: 300 },
-    { id: "totalCostOfOwnership", label: "Total Cost of Ownership", category: "economic", x: 880, y: 380 },
+    // Economic Factors - Adjusted for better visibility
+    { id: "manufacturingCost", label: "Manufacturing Cost", category: "economic", x: 900, y: 150 },
+    { id: "modularityBenefits", label: "Modularity Benefits", category: "economic", x: 800, y: 250 },
+    { id: "upgradeSubsidies", label: "Carrier Upgrade Subsidies", category: "economic", x: 1000, y: 200 },
+    { id: "refurbishmentEconomy", label: "Refurbishment Economy", category: "economic", x: 900, y: 300 },
+    { id: "totalCostOfOwnership", label: "Total Cost of Ownership", category: "economic", x: 850, y: 400 },
     
-    // Environmental Impact
-    { id: "carbonEmissions", label: "Carbon Emissions", category: "environmental", x: 480, y: 500 },
-    { id: "eWasteGeneration", label: "E-Waste Generation", category: "environmental", x: 380, y: 580 },
-    { id: "recyclingRate", label: "Recycling Rate", category: "environmental", x: 580, y: 580 },
-    { id: "energyUse", label: "Operational Energy Use", category: "environmental", x: 480, y: 680 },
-    { id: "endOfLifeEfficiency", label: "End-of-Life Treatment Efficiency", category: "environmental", x: 680, y: 520 },
+    // Environmental Impact - More spaced out
+    { id: "carbonEmissions", label: "Carbon Emissions", category: "environmental", x: 480, y: 520 },
+    { id: "eWasteGeneration", label: "E-Waste Generation", category: "environmental", x: 350, y: 600 },
+    { id: "recyclingRate", label: "Recycling Rate", category: "environmental", x: 580, y: 600 },
+    { id: "energyUse", label: "Operational Energy Use", category: "environmental", x: 480, y: 700 },
+    { id: "endOfLifeEfficiency", label: "End-of-Life Treatment Efficiency", category: "environmental", x: 680, y: 540 },
     
-    // Innovation & Design
-    { id: "aiDiagnostics", label: "Predictive AI Diagnostics", category: "innovation", x: 880, y: 500 },
-    { id: "eInkInterfaces", label: "Smart E-ink Interfaces", category: "innovation", x: 780, y: 580 },
-    { id: "bciAccessibility", label: "BCI for Accessibility", category: "innovation", x: 980, y: 580 },
-    { id: "communityRepair", label: "Community Repair Networks", category: "innovation", x: 880, y: 680 },
+    // Innovation & Design - Better spacing
+    { id: "aiDiagnostics", label: "Predictive AI Diagnostics", category: "innovation", x: 900, y: 520 },
+    { id: "eInkInterfaces", label: "Smart E-ink Interfaces", category: "innovation", x: 780, y: 600 },
+    { id: "bciAccessibility", label: "BCI for Accessibility", category: "innovation", x: 980, y: 600 },
+    { id: "communityRepair", label: "Community Repair Networks", category: "innovation", x: 880, y: 700 },
     { id: "openSourceHardware", label: "Open-Source Hardware", category: "innovation", x: 780, y: 780 }
   ];
 
@@ -182,12 +181,22 @@ const CausalLoopDiagram: React.FC<CausalLoopDiagramProps> = ({ className }) => {
     }
   ];
 
-  // Calculate coordinates
+  // Update the viewBox when component mounts or window resizes
   useEffect(() => {
-    if (svgRef.current) {
-      const { width, height } = svgRef.current.getBoundingClientRect();
-      setViewBox(`0 0 ${width || 1200} ${height || 900}`);
-    }
+    const updateViewBox = () => {
+      if (svgRef.current) {
+        const { width, height } = svgRef.current.getBoundingClientRect();
+        // Increase viewBox slightly to make sure all nodes are visible
+        setViewBox(`0 0 ${Math.max(width, 1200)} ${Math.max(height, 900)}`);
+      }
+    };
+    
+    updateViewBox();
+    window.addEventListener('resize', updateViewBox);
+    
+    return () => {
+      window.removeEventListener('resize', updateViewBox);
+    };
   }, []);
 
   // Helper to get node by ID
