@@ -17,7 +17,7 @@ const Index = () => {
         </header>
         
         <div className="mb-8 rounded-xl shadow-md overflow-hidden border border-gray-200">
-          <CausalLoopDiagram className="h-[800px] md:h-[950px]" />
+          <CausalLoopDiagram className="h-[1100px] md:h-[1200px]" />
         </div>
         
         <div className="bg-white p-6 rounded-lg shadow-sm">
